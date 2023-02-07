@@ -85,17 +85,17 @@
         url: location.href,
         img: ' https://avatars.githubusercontent.com/u/71249956?v=4' //这里填要显示的小图标地址，推荐200X200像素，地址要补全
       };
-      function is_weixin() {
-        var ua = navigator.userAgent.toLowerCase();
-        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-          return true;
-        } else {
-          return false;
-        }
-      }
-      if(!is_weixin()){
-        return;
-      }
+//       function is_weixin() {
+//         var ua = navigator.userAgent.toLowerCase();
+//         if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+//           return true;
+//         } else {
+//           return false;
+//         }
+//       }
+//       if(!is_weixin()){
+//         return;
+//       }
       $.ajax({
         type: 'get',
         url: 'https://github.com/wusuzi/loveRain/jssdk.php?url=' + wxshare.url,
