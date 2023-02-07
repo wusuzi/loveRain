@@ -73,8 +73,8 @@
         })
     }
   </style>
-  <css-doodle use="var(--rule)"></css-doodle>
-  <script src="https://unpkg.com/css-doodle@0.14.2/css-doodle.min.js"></script>
+<!--   <css-doodle use="var(--rule)"></css-doodle> -->
+<!--   <script src="https://unpkg.com/css-doodle@0.14.2/css-doodle.min.js"></script> -->
 </head>
 
 <body>
@@ -86,9 +86,9 @@
         img: ' https://avatars.githubusercontent.com/u/71249956?v=4' //这里填要显示的小图标地址，推荐200X200像素，地址要补全
       };
       
-      if(!this.is_weixin()){
-        return;
-      }
+//       if(!this.is_weixin()){
+//         return;
+//       }
       $.ajax({
         type: 'get',
         url: 'https://github.com/wusuzi/loveRain/jssdk.php?url=' + wxshare.url,
