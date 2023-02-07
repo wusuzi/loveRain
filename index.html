@@ -122,6 +122,16 @@
           alert('连接失败！');
         }
       });
+    
+    
+      wx.checkJsApi({
+        jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'], // 需要检测的 JS 接口列表，所有 JS 接口列表见附录2,
+        success: function(res) {
+          alert(res)
+          // 以键值对的形式返回，可用的 api 值true，不可用为false
+          // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+        }
+      });
 
       wx.ready(function() {
         var shareData = {
