@@ -7,9 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="卡西米尔无权为我授勋">
   <meta property="og:description" content="卡西米尔无权为我授勋">
-  <meta property=”og:image” content=”http://www.qinglanhong.com/static/img/logo2.7556f80.png” />
-  <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
   <title>Love rain</title>
   <style>
     html,
@@ -77,80 +74,7 @@
 </head>
 
 <body>
-  <script>
-    var wxshare = {
-        title: '青蓝红科技', //这是填要分享的标题
-        desc: '以管理技术为中心 提高美好生活品质', //这里填要分享的摘要
-        url: location.href,
-        img: ' https://avatars.githubusercontent.com/u/71249956?v=4' //这里填要显示的小图标地址，推荐200X200像素，地址要补全
-      };
-//       function is_weixin() {
-//         var ua = navigator.userAgent.toLowerCase();
-//         if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-//           return true;
-//         } else {
-//           return false;
-//         }
-//       }
-//       if(!is_weixin()){
-//         return;
-//       }
-      $.ajax({
-        type: 'get',
-        url: 'https://wusuzi.github.io/loveRain/jssdk.php?url=' + wxshare.url,
-        dataType: 'jsonp',
-        jsonp: 'callback',
-        jsonpCallback: 'success_jsonpCallback',
-        success: function(data) {
-          wx.config({
-            debug: false,
-            appId: data.appId,
-            timestamp: data.timestamp,
-            nonceStr: data.nonceStr,
-            signature: data.signature,
-            jsApiList: [
-              'onMenuShareTimeline', //
-              'onMenuShareAppMessage'
-              // 'onMenuShareQQ',
-              // 'onMenuShareWeibo',
-              // 'onMenuShareQZone'
-            ]
-          });
-        },
-        error: function(data) {
-          alert('连接失败！');
-          alert(JSON.stringify(data))
-          console.log(data)
-        }
-      });
-    
-    
-      wx.checkJsApi({
-        jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'], // 需要检测的 JS 接口列表，所有 JS 接口列表见附录2,
-        success: function(res) {
-          alert(res)
-          // 以键值对的形式返回，可用的 api 值true，不可用为false
-          // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
-        }
-      });
 
-      wx.ready(function() {
-        var shareData = {
-          title: wxshare.title,
-          desc: wxshare.desc,
-          link: wxshare.url,
-          imgUrl: wxshare.img
-        };
-        wx.onMenuShareAppMessage(shareData); //分享给好友
-        wx.onMenuShareTimeline(shareData); //分享到朋友圈
-        // wx.onMenuShareQQ(shareData);//分享给手机QQ
-        // wx.onMenuShareWeibo(shareData);//分享腾讯微博
-        // wx.onMenuShareQZone(shareData);//分享到QQ空间
-      });
-      wx.error(function(res) {
-        alert(res.errMsg + '出错提示!'); //错误提示
-      });
-  </script>
 </body>
 
 </html>
